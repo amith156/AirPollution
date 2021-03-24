@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="longLat"
+            type="com.example.myweather.LongLat" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation= "horizontal">
+
+            <EditText
+                android:id="@+id/edit_text_latitude"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:textStyle="bold"
+                android:hint="Enter Latitude"
+                android:inputType="numberDecimal"
+                android:textSize="18dp"
+                android:text="@={longLat.latitude}">
+            </EditText>
+
+            <EditText
+                android:id="@+id/edit_text_longitude"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:textStyle="bold"
+                android:hint="Enter Longitude"
+                android:inputType="numberDecimal"
+                android:textSize="18dp"
+                android:text="@={longLat.longitude}">
+            </EditText>
+
+            <Button
+                android:id="@+id/go_button"
+                android:layout_width="0dp"
+                android:layout_weight="0.4"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:text="Go">
+            </Button>
+
+        </LinearLayout>
+        <View style="@style/Divider"/>
+    </LinearLayout>
+
+
+</layout>
