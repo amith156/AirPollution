@@ -58,8 +58,14 @@ public class MainActivity extends AppCompatActivity {
         mainBinding.longLat.goButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("xxxxx","****");
-                pollutionViewModel.makeAPICall();
+                Double tempLat = Double.parseDouble(mainBinding.longLat.editTextLatitude.getText().toString());
+                Double tempLong = Double.parseDouble(mainBinding.longLat.editTextLongitude.getText().toString());
+
+                Log.d("xxxxx","****"+tempLat+"****"+tempLong);
+                pollutionViewModel.makeAPICall(
+                        tempLat,
+                        tempLong
+                );
             }
         });
 //

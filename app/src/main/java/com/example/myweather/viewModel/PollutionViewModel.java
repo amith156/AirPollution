@@ -53,13 +53,19 @@ public class PollutionViewModel extends ViewModel {
 
     }
 
-    public void makeAPICall() {
+    public void makeAPICall(double latitude, double longitude) {
         APIService apiService = RetroInstance
                 .getRetrofitClient()
                 .create(APIService.class);
 
 //        Call<List<PollutionModels>> call = apiService.getPollutionData();
-        Call<AllPollutionData> call1 = apiService.getPollutionData();
+        Call<AllPollutionData> call1 = apiService.getPollutionData(
+                latitude,
+                longitude,
+                1606223802,
+                1606482999,
+                "adec65d9c9f661e1020c21cacce55893"
+        );
 
         call1.enqueue(new Callback<AllPollutionData>() {
             @Override
