@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.LinearLayout;
@@ -32,12 +33,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ActivityMainBinding mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         mainBinding.longLat.setLongLat(new LongLat("",""));
-        LinearLayoutManager layoutManager = new GridLayoutManager(this,2);
+        LinearLayoutManager layoutManager = new GridLayoutManager(this,1);
         mainBinding.airComponents.recyclerViewComponents.setLayoutManager(layoutManager);
         adapter = new PollutionListAdapter(this, pollutionModelsList);
         mainBinding.airComponents.recyclerViewComponents.setAdapter(adapter);
 
         pollutionViewModel = ViewModelProviders.of(this).get(PollutionViewModel.class);
+
 
         pollutionViewModel.getPollutionListObserver().observe(this, new Observer<List<PollutionModels>>() {
 

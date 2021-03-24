@@ -1,7 +1,12 @@
 package com.example.myweather.viewModel;
 
 import android.util.Log;
+import android.widget.BaseAdapter;
 
+import com.example.myweather.BR;
+import com.example.myweather.LongLat;
+import com.example.myweather.R;
+import com.example.myweather.databinding.ActivityMainBinding;
 import com.example.myweather.models.AllPollutionData;
 import com.example.myweather.models.MyList;
 import com.example.myweather.models.PollutionModels;
@@ -14,6 +19,10 @@ import java.util.List;
 
 import javax.sql.PooledConnection;
 
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ObservableField;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import retrofit2.Call;
@@ -27,6 +36,15 @@ public class PollutionViewModel extends ViewModel {
 
     public MutableLiveData<List<PollutionModels>> getPollutionListObserver() {
         return pollutionList;
+    }
+
+    public String x() {
+        return "xxxxx";
+    }
+
+    public void buttonPress(String latitude, String longitude) {
+        Log.d("xxxxx"," "+latitude);
+
     }
 
     public void makeAPICall() {
