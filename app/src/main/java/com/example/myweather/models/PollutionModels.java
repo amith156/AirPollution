@@ -1,17 +1,27 @@
-package com.example.myweather.Models;
+package com.example.myweather.models;
+
+import com.google.gson.annotations.SerializedName;
 
 public class PollutionModels {
 
-    public double co;
-    public int no;
-    public double no2;
-    public double o3;
-    public double so2;
-    public double pm2_5;
-    public double pm10;
-    public double nh3;
+    @SerializedName("nh3")
+    private double nh3;
+    @SerializedName("pm10")
+    private double pm10;
+    @SerializedName("pm2_5")
+    private double pm2_5;
+    @SerializedName("so2")
+    private double so2;
+    @SerializedName("o3")
+    private double o3;
+    @SerializedName("no2")
+    private double no2;
+    @SerializedName("no")
+    private double no;
+    @SerializedName("co")
+    private double co;
 
-    public PollutionModels(double co, int no, double no2, double o3, double so2, double pm2_5, double pm10, double nh3) {
+    public PollutionModels(double co, double no, double no2, double o3, double so2, double pm2_5, double pm10, double nh3) {
         this.co = co;
         this.no = no;
         this.no2 = no2;
@@ -30,11 +40,11 @@ public class PollutionModels {
         this.co = co;
     }
 
-    public int getNo() {
+    public double getNo() {
         return no;
     }
 
-    public void setNo(int no) {
+    public void setNo(double no) {
         this.no = no;
     }
 
@@ -85,5 +95,6 @@ public class PollutionModels {
     public void setNh3(double nh3) {
         this.nh3 = nh3;
     }
+
 
 }

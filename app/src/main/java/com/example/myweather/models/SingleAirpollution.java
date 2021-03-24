@@ -1,4 +1,4 @@
-package com.example.myweather.Models;
+package com.example.myweather.models;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ public class SingleAirpollution {
 
     public class list{
         public Main main;
-        public Components components;
+//        public Components components;
         public int dt;
     }
 
@@ -20,16 +20,16 @@ public class SingleAirpollution {
         public int aqi;
     }
 
-    public class Components{
-        public double co;
-        public int no;
-        public double no2;
-        public double o3;
-        public double so2;
-        public double pm2_5;
-        public double pm10;
-        public double nh3;
-    }
+//    public class Components{
+//        public double co;
+//        public int no;
+//        public double no2;
+//        public double o3;
+//        public double so2;
+//        public double pm2_5;
+//        public double pm10;
+//        public double nh3;
+//    }
 
 
 

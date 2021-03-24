@@ -10,21 +10,38 @@
         <variable
             name="longLat"
             type="com.example.myweather.LongLat" />
+        <variable
+            name="pollutionViewModel"
+            type="com.example.myweather.viewModel.PollutionViewModel" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
         <include
             android:id="@+id/long_lat"
             layout="@layout/longlat_main"
+            bind:layout_constraintTop_toTopOf="parent"
+            bind:layout_constraintLeft_toLeftOf="parent"
+            bind:layout_constraintRight_toRightOf="parent"
             tools:ignore="ExtraText">
             bind:longLat = @{longLat}
+
         </include>
 
-    </LinearLayout>
+        <include
+            android:id="@+id/air_components"
+            layout="@layout/air_components_main"
+            bind:layout_constraintTop_toBottomOf="@id/long_lat"
+            bind:layout_constraintLeft_toLeftOf="parent"
+            bind:layout_constraintRight_toRightOf="parent"
+            tools:ignore="ExtraText">
+            bind:pollutionViewModel = @{pollutionViewModel}
+        </include>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
