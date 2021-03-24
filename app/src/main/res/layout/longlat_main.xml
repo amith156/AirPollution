@@ -6,6 +6,8 @@
         <variable
             name="longLat"
             type="com.example.myweather.LongLat" />
+
+
     </data>
 
     <LinearLayout

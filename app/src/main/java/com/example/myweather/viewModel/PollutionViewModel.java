@@ -34,6 +34,12 @@ public class PollutionViewModel extends ViewModel {
 
     private MutableLiveData<List<PollutionModels>> pollutionList = new MutableLiveData<>();
 
+    public ObservableField<String> mLat = new ObservableField<>();
+    public ObservableField<String> mLong = new ObservableField<>();
+
+
+
+
     public MutableLiveData<List<PollutionModels>> getPollutionListObserver() {
         return pollutionList;
     }

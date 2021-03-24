@@ -55,7 +55,14 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        pollutionViewModel.makeAPICall();
+        mainBinding.longLat.goButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("xxxxx","****");
+                pollutionViewModel.makeAPICall();
+            }
+        });
+//
 
     }
 }
