@@ -62,27 +62,60 @@ public class MainActivity extends AppCompatActivity {
         mainBinding.longLat.goButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Double tempLat = Double.parseDouble(mainBinding.longLat.editTextLatitude.getText().toString());
-                Double tempLong = Double.parseDouble(mainBinding.longLat.editTextLongitude.getText().toString());
+                if(view.isClickable()) {
+                    Double tempLat = Double.parseDouble(mainBinding.longLat.editTextLatitude.getText().toString());
+                    Double tempLong = Double.parseDouble(mainBinding.longLat.editTextLongitude.getText().toString());
 
-                pollutionViewModel.makeAPICall(
-                        tempLat,
-                        tempLong
-                );
+                    pollutionViewModel.makeAPICall(
+                            tempLat,
+                            tempLong
+                    );
+                }
             }
         });
 
-        mainBinding.buttonCo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), CompActivity.class);
-//                Bundle bundle = new Bundle();
-//                bundle.putParcelableArrayListExtra("PollutionModels", pollutionModelsList);
-                intent.putParcelableArrayListExtra("PollutionModels", (ArrayList<PollutionModels>) pollutionModelsList);
-                startActivity(intent);
-            }
-        });
+//        mainBinding.buttonCo.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getApplicationContext(), CompActivity.class);
+////                Bundle bundle = new Bundle();
+////                bundle.putParcelableArrayListExtra("PollutionModels", pollutionModelsList);
+//                intent.putParcelableArrayListExtra("PollutionModels", (ArrayList<PollutionModels>) pollutionModelsList);
+//                startActivity(intent);
+//            }
+//        });
 
 
     }
+
+
+    public void buttonClicked(View view) {
+        Intent intent = new Intent(getApplicationContext(), CompActivity.class);
+        List<PollutionModels> tempList = pollutionModelsList;
+        ArrayList<Double> newTempListX1 = new ArrayList<>();
+        ArrayList<Double> newTempListY1 = new ArrayList<>();
+        double newTempListX[] = new double[tempList.size()];
+        double newTempListY[] = new double[tempList.size()];
+        if(view.getId() == R.id.button_co) {
+
+            for ( PollutionModels item : tempList) {
+                newTempListX1.add(item.getCo());
+                newTempListY1.add(item.getO3());
+            }
+
+            for (int i = 1; i<newTempListX1.size(); i++) {
+                newTempListX[i] = newTempListX1.get(i);
+                newTempListY[i] = newTempListY1.get(i);
+            }
+
+            if(!(newTempListX == null && newTempListX == null)) {
+                Log.d("xxxxx" + newTempListX.length, "****");
+                intent.putExtra("co", newTempListX);
+                intent.putExtra("o3", newTempListY);
+            }
+//            intent.putParcelableArrayListExtra("co", newTempListX);
+            startActivity(intent);
+        }
+    }
+
 }

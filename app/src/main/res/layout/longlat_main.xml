@@ -51,6 +51,8 @@
                 android:layout_weight="0.4"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
+                android:clickable="false"
+                android:enabled="@{(longLat.latitude.isEmpty() &amp;&amp; longLat.latitude.isEmpty()) ? false:true }"
                 android:text="Go">
             </Button>
 
