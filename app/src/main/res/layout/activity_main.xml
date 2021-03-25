@@ -35,13 +35,41 @@
             android:id="@+id/button_co"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Co"
-            android:layout_marginLeft="20dp"
+            android:text="Co|o3"
             android:onClick="buttonClicked"
+            android:enabled="false"
             bind:layout_constraintTop_toBottomOf="@id/long_lat"
-            bind:layout_constraintLeft_toLeftOf="parent">
+            bind:layout_constraintLeft_toLeftOf="parent"
+            bind:layout_constraintRight_toLeftOf="@id/button_no">
 
         </Button>
+
+        <Button
+            android:id="@+id/button_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No|No2"
+            android:onClick="buttonClicked"
+            android:enabled="false"
+            bind:layout_constraintTop_toBottomOf="@id/long_lat"
+            bind:layout_constraintLeft_toRightOf="@id/button_co"
+            bind:layout_constraintRight_toLeftOf="@id/button_so">
+
+        </Button>
+
+        <Button
+            android:id="@+id/button_so"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:onClick="buttonClicked"
+            android:text="So2|Nh3"
+            bind:layout_constraintRight_toRightOf="parent"
+            bind:layout_constraintLeft_toRightOf="@id/button_no"
+            bind:layout_constraintTop_toBottomOf="@id/long_lat">
+
+        </Button>
+
 
         <include
             android:id="@+id/air_components"

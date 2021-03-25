@@ -9,6 +9,8 @@ public class LongLat extends BaseObservable {
     public String latitude;
     public String longitude;
 
+
+
     @Bindable
     public String getLatitude() {
         return latitude;
@@ -38,9 +40,10 @@ public class LongLat extends BaseObservable {
 //            }
 //        };
 
-    LongLat(String latitude, String longitude) {
+    LongLat(String latitude, String longitude ) {
         this.latitude = latitude;
         this.longitude = longitude;
+
     }
 
 

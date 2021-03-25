@@ -24,13 +24,24 @@ public class CompActivity extends AppCompatActivity {
 
     private void getIncomingIntent() {
         if(getIntent().hasExtra("co") && getIntent().hasExtra("o3")) {
-
             Log.d("co","****");
             getIntent().getDoubleArrayExtra("co");
             double[] x = getIntent().getDoubleArrayExtra("co");
             double[] y = getIntent().getDoubleArrayExtra("o3");
-
-
+            graphMaker(x, y);
+        }
+        else if(getIntent().hasExtra("no") && getIntent().hasExtra("no2")) {
+            Log.d("co","****");
+            getIntent().getDoubleArrayExtra("no");
+            double[] x = getIntent().getDoubleArrayExtra("no");
+            double[] y = getIntent().getDoubleArrayExtra("no2");
+            graphMaker(x, y);
+        }
+        else if(getIntent().hasExtra("so2") && getIntent().hasExtra("nh3")) {
+            Log.d("co","****");
+            getIntent().getDoubleArrayExtra("so2");
+            double[] x = getIntent().getDoubleArrayExtra("so2");
+            double[] y = getIntent().getDoubleArrayExtra("nh3");
             graphMaker(x, y);
         }
     }

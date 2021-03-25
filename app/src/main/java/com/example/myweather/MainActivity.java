@@ -63,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(view.isClickable()) {
+                    mainBinding.buttonCo.setEnabled(true);
+                    mainBinding.buttonNo.setEnabled(true);
+                    mainBinding.buttonSo.setEnabled(true);
                     Double tempLat = Double.parseDouble(mainBinding.longLat.editTextLatitude.getText().toString());
                     Double tempLong = Double.parseDouble(mainBinding.longLat.editTextLongitude.getText().toString());
 
@@ -114,6 +117,42 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("o3", newTempListY);
             }
 //            intent.putParcelableArrayListExtra("co", newTempListX);
+            startActivity(intent);
+        }
+        else if(view.getId() == R.id.button_no) {
+            for ( PollutionModels item : tempList) {
+                newTempListX1.add(item.getNo());
+                newTempListY1.add(item.getNo2());
+            }
+
+            for (int i = 1; i<newTempListX1.size(); i++) {
+                newTempListX[i] = newTempListX1.get(i);
+                newTempListY[i] = newTempListY1.get(i);
+            }
+
+            if(!(newTempListX == null && newTempListX == null)) {
+                Log.d("xxxxx" + newTempListX.length, "****");
+                intent.putExtra("no", newTempListX);
+                intent.putExtra("no2", newTempListY);
+            }
+            startActivity(intent);
+        }
+        else if(view.getId() == R.id.button_so) {
+            for ( PollutionModels item : tempList) {
+                newTempListX1.add(item.getSo2());
+                newTempListY1.add(item.getNh3());
+            }
+
+            for (int i = 1; i<newTempListX1.size(); i++) {
+                newTempListX[i] = newTempListX1.get(i);
+                newTempListY[i] = newTempListY1.get(i);
+            }
+
+            if(!(newTempListX == null && newTempListX == null)) {
+                Log.d("xxxxx" + newTempListX.length, "****");
+                intent.putExtra("so2", newTempListX);
+                intent.putExtra("nh3", newTempListY);
+            }
             startActivity(intent);
         }
     }
