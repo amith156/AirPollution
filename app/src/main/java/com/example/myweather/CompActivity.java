@@ -3,21 +3,28 @@ package com.example.myweather;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.myweather.databinding.ActivityCompBinding;
+import com.example.myweather.databinding.ActivityMainBinding;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 public class CompActivity extends AppCompatActivity {
 
     LineGraphSeries<DataPoint> series = new LineGraphSeries<>();
+    ActivityCompBinding compBinding;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comp);
+        compBinding = DataBindingUtil.setContentView(this, R.layout.activity_comp);
+
+
 
         getIncomingIntent();
     }
@@ -25,10 +32,17 @@ public class CompActivity extends AppCompatActivity {
     private void getIncomingIntent() {
         if(getIntent().hasExtra("co") && getIntent().hasExtra("o3")) {
             Log.d("co","****");
+
             getIntent().getDoubleArrayExtra("co");
             double[] x = getIntent().getDoubleArrayExtra("co");
             double[] y = getIntent().getDoubleArrayExtra("o3");
             graphMaker(x, y);
+            float size =  50.5f;
+            compBinding.viewGraph.setTitle("Co/O3");
+            compBinding.viewGraph.getGridLabelRenderer().setHorizontalAxisTitle("Co");
+            compBinding.viewGraph.getGridLabelRenderer().setVerticalAxisTitle("O3");
+            compBinding.viewGraph.getGridLabelRenderer().setHorizontalAxisTitleTextSize(size);
+            compBinding.viewGraph.getGridLabelRenderer().setVerticalAxisTitleTextSize(size);
         }
         else if(getIntent().hasExtra("no") && getIntent().hasExtra("no2")) {
             Log.d("co","****");
@@ -36,6 +50,12 @@ public class CompActivity extends AppCompatActivity {
             double[] x = getIntent().getDoubleArrayExtra("no");
             double[] y = getIntent().getDoubleArrayExtra("no2");
             graphMaker(x, y);
+            float size =  50.5f;
+            compBinding.viewGraph.setTitle("No/No2");
+            compBinding.viewGraph.getGridLabelRenderer().setHorizontalAxisTitle("No");
+            compBinding.viewGraph.getGridLabelRenderer().setVerticalAxisTitle("No2");
+            compBinding.viewGraph.getGridLabelRenderer().setHorizontalAxisTitleTextSize(size);
+            compBinding.viewGraph.getGridLabelRenderer().setVerticalAxisTitleTextSize(size);
         }
         else if(getIntent().hasExtra("so2") && getIntent().hasExtra("nh3")) {
             Log.d("co","****");
@@ -43,6 +63,12 @@ public class CompActivity extends AppCompatActivity {
             double[] x = getIntent().getDoubleArrayExtra("so2");
             double[] y = getIntent().getDoubleArrayExtra("nh3");
             graphMaker(x, y);
+            float size =  50.5f;
+            compBinding.viewGraph.setTitle("so2/nh3");
+            compBinding.viewGraph.getGridLabelRenderer().setHorizontalAxisTitle("so2");
+            compBinding.viewGraph.getGridLabelRenderer().setVerticalAxisTitle("nh3");
+            compBinding.viewGraph.getGridLabelRenderer().setHorizontalAxisTitleTextSize(size);
+            compBinding.viewGraph.getGridLabelRenderer().setVerticalAxisTitleTextSize(size);
         }
     }
 

@@ -26,17 +26,6 @@ public class PollutionModels implements Parcelable{
     @SerializedName("co")
     private double co;
 
-    public PollutionModels(double co, double no, double no2, double o3, double so2, double pm2_5, double pm10, double nh3) {
-        this.co = co;
-        this.no = no;
-        this.no2 = no2;
-        this.o3 = o3;
-        this.so2 = so2;
-        this.pm2_5 = pm2_5;
-        this.pm10 = pm10;
-        this.nh3 = nh3;
-    }
-
     public double getCo() {
         return co;
     }
@@ -101,7 +90,16 @@ public class PollutionModels implements Parcelable{
         this.nh3 = nh3;
     }
 
-
+    public PollutionModels(double co, double no, double no2, double o3, double so2, double pm2_5, double pm10, double nh3) {
+        this.co = co;
+        this.no = no;
+        this.no2 = no2;
+        this.o3 = o3;
+        this.so2 = so2;
+        this.pm2_5 = pm2_5;
+        this.pm10 = pm10;
+        this.nh3 = nh3;
+    }
 
     protected PollutionModels(Parcel in) {
         nh3 = in.readDouble();

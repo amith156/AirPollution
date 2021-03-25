@@ -37,20 +37,8 @@ public class PollutionViewModel extends ViewModel {
     public ObservableField<String> mLat = new ObservableField<>();
     public ObservableField<String> mLong = new ObservableField<>();
 
-
-
-
     public MutableLiveData<List<PollutionModels>> getPollutionListObserver() {
         return pollutionList;
-    }
-
-    public String x() {
-        return "xxxxx";
-    }
-
-    public void buttonPress(String latitude, String longitude) {
-        Log.d("xxxxx"," "+latitude);
-
     }
 
     public void makeAPICall(double latitude, double longitude) {
@@ -58,13 +46,7 @@ public class PollutionViewModel extends ViewModel {
                 .getRetrofitClient()
                 .create(APIService.class);
 
-//        Call<List<PollutionModels>> call = apiService.getPollutionData();
-        Call<AllPollutionData> call1 = apiService.getPollutionData(
-                latitude,
-                longitude,
-                1606223802,
-                1606482999,
-                "adec65d9c9f661e1020c21cacce55893"
+        Call<AllPollutionData> call1 = apiService.getPollutionData(latitude, longitude, 1606223802, 1606482999, "adec65d9c9f661e1020c21cacce55893"
         );
 
         call1.enqueue(new Callback<AllPollutionData>() {
@@ -82,13 +64,11 @@ public class PollutionViewModel extends ViewModel {
 
                 pollutionList.postValue(tempPollutionModels);
             }
-
             @Override
             public void onFailure(Call<AllPollutionData> call, Throwable t) {
                 pollutionList.postValue(null);
             }
         });
-
 //        call.enqueue(new Callback<List<PollutionModels>>() {
 //            @Override
 //            public void onResponse(Call<List<PollutionModels>> call, Response<List<PollutionModels>> response) {
@@ -100,8 +80,5 @@ public class PollutionViewModel extends ViewModel {
 //                pollutionList.postValue(null);
 //            }
 //        });
-
     }
-
-
 }

@@ -76,19 +76,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-//        mainBinding.buttonCo.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getApplicationContext(), CompActivity.class);
-////                Bundle bundle = new Bundle();
-////                bundle.putParcelableArrayListExtra("PollutionModels", pollutionModelsList);
-//                intent.putParcelableArrayListExtra("PollutionModels", (ArrayList<PollutionModels>) pollutionModelsList);
-//                startActivity(intent);
-//            }
-//        });
-
-
     }
 
 

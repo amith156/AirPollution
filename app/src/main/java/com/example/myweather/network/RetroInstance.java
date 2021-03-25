@@ -26,7 +26,4 @@ public class RetroInstance {
         return retrofit;
 
     }
-
-
-
 }
