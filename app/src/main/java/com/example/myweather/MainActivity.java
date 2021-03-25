@@ -7,7 +7,9 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.GridLayout;
@@ -19,6 +21,8 @@ import com.example.myweather.models.MyList;
 import com.example.myweather.models.PollutionModels;
 import com.example.myweather.viewModel.PollutionViewModel;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -61,14 +65,24 @@ public class MainActivity extends AppCompatActivity {
                 Double tempLat = Double.parseDouble(mainBinding.longLat.editTextLatitude.getText().toString());
                 Double tempLong = Double.parseDouble(mainBinding.longLat.editTextLongitude.getText().toString());
 
-                Log.d("xxxxx","****"+tempLat+"****"+tempLong);
                 pollutionViewModel.makeAPICall(
                         tempLat,
                         tempLong
                 );
             }
         });
-//
+
+        mainBinding.buttonCo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), CompActivity.class);
+//                Bundle bundle = new Bundle();
+//                bundle.putParcelableArrayListExtra("PollutionModels", pollutionModelsList);
+                intent.putParcelableArrayListExtra("PollutionModels", (ArrayList<PollutionModels>) pollutionModelsList);
+                startActivity(intent);
+            }
+        });
+
 
     }
 }

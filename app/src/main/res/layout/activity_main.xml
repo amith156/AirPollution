@@ -30,6 +30,16 @@
             bind:longLat = @{longLat}
 
         </include>
+        <Button
+            android:id="@+id/button_co"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Co"
+            android:layout_marginLeft="20dp"
+            bind:layout_constraintTop_toBottomOf="@id/long_lat"
+            bind:layout_constraintLeft_toLeftOf="parent">
+
+        </Button>
 
         <include
             android:id="@+id/air_components"
@@ -37,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            bind:layout_constraintTop_toBottomOf="@id/long_lat"
+            bind:layout_constraintTop_toBottomOf="@id/button_co"
             bind:layout_constraintLeft_toLeftOf="parent"
             bind:layout_constraintRight_toRightOf="parent"
             tools:ignore="ExtraText">

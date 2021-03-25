@@ -1,8 +1,13 @@
 package com.example.myweather.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
-public class PollutionModels {
+import java.io.Serializable;
+
+public class PollutionModels implements Parcelable{
 
     @SerializedName("nh3")
     private double nh3;
@@ -96,5 +101,47 @@ public class PollutionModels {
         this.nh3 = nh3;
     }
 
+
+
+    protected PollutionModels(Parcel in) {
+        nh3 = in.readDouble();
+        pm10 = in.readDouble();
+        pm2_5 = in.readDouble();
+        so2 = in.readDouble();
+        o3 = in.readDouble();
+        no2 = in.readDouble();
+        no = in.readDouble();
+        co = in.readDouble();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeDouble(nh3);
+        dest.writeDouble(pm10);
+        dest.writeDouble(pm2_5);
+        dest.writeDouble(so2);
+        dest.writeDouble(o3);
+        dest.writeDouble(no2);
+        dest.writeDouble(no);
+        dest.writeDouble(co);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<PollutionModels> CREATOR = new Parcelable.Creator<PollutionModels>() {
+        @Override
+        public PollutionModels createFromParcel(Parcel in) {
+            return new PollutionModels(in);
+        }
+
+        @Override
+        public PollutionModels[] newArray(int size) {
+            return new PollutionModels[size];
+        }
+    };
 
 }
