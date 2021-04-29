@@ -29,6 +29,15 @@ public class CompActivity extends AppCompatActivity {
         getIncomingIntent();
     }
 
+    public void graphModification(String x, String y, float size) {
+        compBinding.viewGraph.setTitle(x+"|"+y);
+        compBinding.viewGraph.setTitleTextSize(size+20.0f);
+        compBinding.viewGraph.getGridLabelRenderer().setHorizontalAxisTitle(x);
+        compBinding.viewGraph.getGridLabelRenderer().setVerticalAxisTitle(y);
+        compBinding.viewGraph.getGridLabelRenderer().setHorizontalAxisTitleTextSize(size);
+        compBinding.viewGraph.getGridLabelRenderer().setVerticalAxisTitleTextSize(size);
+    }
+
     private void getIncomingIntent() {
         if(getIntent().hasExtra("co") && getIntent().hasExtra("o3")) {
             Log.d("co","****");
@@ -37,12 +46,8 @@ public class CompActivity extends AppCompatActivity {
             double[] x = getIntent().getDoubleArrayExtra("co");
             double[] y = getIntent().getDoubleArrayExtra("o3");
             graphMaker(x, y);
-            float size =  50.5f;
-            compBinding.viewGraph.setTitle("Co/O3");
-            compBinding.viewGraph.getGridLabelRenderer().setHorizontalAxisTitle("Co");
-            compBinding.viewGraph.getGridLabelRenderer().setVerticalAxisTitle("O3");
-            compBinding.viewGraph.getGridLabelRenderer().setHorizontalAxisTitleTextSize(size);
-            compBinding.viewGraph.getGridLabelRenderer().setVerticalAxisTitleTextSize(size);
+            graphModification("Co","O3",50.0f);
+
         }
         else if(getIntent().hasExtra("no") && getIntent().hasExtra("no2")) {
             Log.d("co","****");
@@ -50,12 +55,8 @@ public class CompActivity extends AppCompatActivity {
             double[] x = getIntent().getDoubleArrayExtra("no");
             double[] y = getIntent().getDoubleArrayExtra("no2");
             graphMaker(x, y);
-            float size =  50.5f;
-            compBinding.viewGraph.setTitle("No/No2");
-            compBinding.viewGraph.getGridLabelRenderer().setHorizontalAxisTitle("No");
-            compBinding.viewGraph.getGridLabelRenderer().setVerticalAxisTitle("No2");
-            compBinding.viewGraph.getGridLabelRenderer().setHorizontalAxisTitleTextSize(size);
-            compBinding.viewGraph.getGridLabelRenderer().setVerticalAxisTitleTextSize(size);
+
+            graphModification("No","No2",50.0f);
         }
         else if(getIntent().hasExtra("so2") && getIntent().hasExtra("nh3")) {
             Log.d("co","****");
@@ -63,12 +64,9 @@ public class CompActivity extends AppCompatActivity {
             double[] x = getIntent().getDoubleArrayExtra("so2");
             double[] y = getIntent().getDoubleArrayExtra("nh3");
             graphMaker(x, y);
-            float size =  50.5f;
-            compBinding.viewGraph.setTitle("so2/nh3");
-            compBinding.viewGraph.getGridLabelRenderer().setHorizontalAxisTitle("so2");
-            compBinding.viewGraph.getGridLabelRenderer().setVerticalAxisTitle("nh3");
-            compBinding.viewGraph.getGridLabelRenderer().setHorizontalAxisTitleTextSize(size);
-            compBinding.viewGraph.getGridLabelRenderer().setVerticalAxisTitleTextSize(size);
+
+            graphModification("So2","Nh3",50.0f);
+
         }
     }
 
